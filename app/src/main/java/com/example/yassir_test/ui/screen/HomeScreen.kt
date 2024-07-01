@@ -19,7 +19,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -29,12 +28,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -43,7 +39,6 @@ import com.example.yassir_test.R
 import com.example.yassir_test.data.model.Movie
 import com.example.yassir_test.navigation.Screen
 import com.example.yassir_test.ui.component.AnimatedShimmer
-import com.example.yassir_test.ui.theme.Yassir_TestTheme
 import com.example.yassir_test.ui.theme.fredricka
 import com.example.yassir_test.ui.theme.mate_italic
 import com.example.yassir_test.ui.theme.tangerine_Bold
@@ -120,8 +115,6 @@ fun MovieItem(
     navigateToDetail: () -> Unit,
     movieViewModel: MovieViewModel
 ) {
-    val context = LocalContext.current
-
     Card(
         onClick = {
             movieViewModel.setMovieId(movie.id)
@@ -150,9 +143,9 @@ fun MovieItem(
                     text = movie.originalTitle,
                     fontFamily = tangerine_Bold,
                     fontSize = 22.sp,
-                    fontWeight = FontWeight(700)
+                    fontWeight = FontWeight(900)
                 )
-                Spacer(modifier = Modifier.height(2.dp))
+                Spacer(modifier = Modifier.height(1.dp))
                 Text(
                     text = extractYearFromDate(movie.releaseDate),
                     fontFamily = mate_italic,
